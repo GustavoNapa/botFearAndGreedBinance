@@ -1,8 +1,9 @@
-import { IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonMenuButton, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonMenuButton, IonPage, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
+
 import { moonOutline, sunnyOutline } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
-import { Route, useParams } from 'react-router';
+import { useParams } from 'react-router';
+import Inicio from './Inicio/Inicio';
 import './Page.css';
 
 const Page: React.FC = () => {
@@ -12,10 +13,19 @@ const Page: React.FC = () => {
   
   const [iconTheme, setIconTheme] = useState(moonOutline);
 
+  function RoutesContentPages(){
+    if(name === "Inicio") return(<Inicio />);
+    else return(<IonHeader><IonToolbar><IonTitle>Página em produção</IonTitle></IonToolbar></IonHeader>);
+  }
+
   useEffect(() => {
     if(localStorage.getItem("theme") === "dark") {
       document.body.classList.toggle('dark', true);
       setIconTheme(sunnyOutline);
+
+      // SELECIONAR TOGGLE AUTOMATICAMENTE NO DARK THEME
+      var toggle:any = document.querySelector('#themeToggle');
+      toggle.checked = true;
 
       return;
     }
@@ -61,9 +71,7 @@ const Page: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        
-            <IonTitle>Inicio</IonTitle>
-            <IonTitle>Analizando</IonTitle>
+        <RoutesContentPages />
       </IonContent>
     </IonPage>
   );
