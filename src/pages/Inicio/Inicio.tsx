@@ -1,9 +1,12 @@
-import { IonContent, IonPage } from '@ionic/react';
+import BinanceAccountInfoCard from '../../components/BinanceAccountInfoCard';
 import FearAndGreedIndicator from '../../components/FearAndGreedIndicator/index';
 
 function Inicio(){
   return (
-    <FearAndGreedIndicator />
+    <>
+      <FearAndGreedIndicator />
+      <BinanceAccountInfoCard />
+    </>
   )
 };
 

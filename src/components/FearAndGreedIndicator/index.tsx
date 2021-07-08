@@ -22,8 +22,6 @@ function FearAndGreedIndicator(){
   async function fearAndGreedSentimentAPI(){
     const returnSentiment = await alternativeAPI();
 
-    console.log(returnSentiment);
-
     if(returnSentiment.metadata.error !== null) return;
 
     setFGAPI(await returnSentiment.data[0]);
