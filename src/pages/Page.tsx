@@ -3,6 +3,7 @@ import { IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonMenuButton, Ion
 import { moonOutline, sunnyOutline } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import Info from './Info';
 import Inicio from './Inicio/Inicio';
 import './Page.css';
 
@@ -15,6 +16,7 @@ const Page: React.FC = () => {
 
   function RoutesContentPages(){
     if(name === "Inicio") return(<Inicio />);
+    if(name === "Informações") return(<Info />);
     else return(<IonHeader><IonToolbar><IonTitle>Página em produção</IonTitle></IonToolbar></IonHeader>);
   }
 
